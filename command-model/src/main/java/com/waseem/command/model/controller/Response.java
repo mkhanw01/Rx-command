@@ -1,4 +1,4 @@
-package com.waseem.command.model.service;
+package com.waseem.command.model.controller;
 
 import lombok.Builder;
 import lombok.Data;

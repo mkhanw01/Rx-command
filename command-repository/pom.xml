@@ -11,5 +11,13 @@
 
     <artifactId>command-repository</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.waseem</groupId>
+            <artifactId>command-entity</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
