@@ -1,0 +1,111 @@
+<configuration scan="true">
+    <property resource="application.properties"/>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                [%X{key}]%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", UTC} %-5level %logger{35} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="spring" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.home:-.}/logs/x/command/spring.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${catalina.home:-.}/logs/x/command/spring.%d{yyyy-MM-dd}.old.log
+            </fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                [%X{key}]%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", UTC} %-5level %logger{35} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="all" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.home:-.}/logs/x/command/all.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.home:-.}/logs/x/archive/command/all.%d{yyyy-MM-dd}.old.log
+            </fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                [%X{key}]%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", UTC} %-5level %logger{35} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="app" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.home:-.}/logs/x/command/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.home:-.}/logs/x/archive/command/app.%d{yyyy-MM-dd}.old.log
+            </fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                [%X{key}]%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", UTC} %-5level %logger{35} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="orm" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.home:-.}/logs/x/command/orm.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.home:-.}/logs/x/archive/command/orm.%d{yyyy-MM-dd}.old.log
+            </fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                [%X{key}]%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", UTC} %-5level %logger{35} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="cache" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.home:-.}/logs/x/command/cache.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.home:-.}/logs/x/archive/command/cache.%d{yyyy-MM-dd}.old.log
+            </fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                [%X{key}]%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", UTC} %-5level %logger{35} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="org.springframework" level="warn" additivity="false">
+        <appender-ref ref="spring"/>
+    </logger>
+
+    <logger name="org.springframework.cache" level="warn" additivity="false">
+        <appender-ref ref="cache"/>
+    </logger>
+
+    <logger name="org.hibernate" level="warn" additivity="false">
+        <appender-ref ref="orm"/>
+    </logger>
+
+    <logger name="com.waseem.command.controller" level="INFO" additivity="false">
+        <appender-ref ref="app"/>
+    </logger>
+
+    <logger name="com.waseem.command.service" level="INFO" additivity="false">
+        <appender-ref ref="app"/>
+    </logger>
+
+    <logger name="com.waseem.command.repository" level="INFO" additivity="false">
+        <appender-ref ref="app"/>
+    </logger>
+    <logger name="com.waseem" level="INFO" additivity="false">
+        <appender-ref ref="app"/>
+    </logger>
+    <root level="INFO">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="app"/>
+        <appender-ref ref="all"/>
+    </root>
+
+</configuration>
