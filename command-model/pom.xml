@@ -11,5 +11,13 @@
 
     <artifactId>command-model</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.waseem</groupId>
+            <artifactId>command-validation</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
