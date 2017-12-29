@@ -1,6 +1,6 @@
 package com.waseem.command.validation;
 
-import com.waseem.command.validation.validator.CartMustNotExistsValidator;
+import com.waseem.command.validation.validator.ProductMustExistsValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -14,14 +14,13 @@ import java.lang.annotation.Target;
  * Created by khan on 12/29/17.
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE,ElementType.FIELD,ElementType.METHOD,ElementType.ANNOTATION_TYPE})
-@Constraint(validatedBy = {CartMustNotExistsValidator.class})
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE, ElementType.TYPE})
+@Constraint(validatedBy = {ProductMustExistsValidator.class})
 @Documented
-public @interface CartMustNotExists {
+public @interface ProductMustExists {
+  String message() default "ProductMustExists";
 
-  String message() default "CartMustNoExists";
-
-  Class<?>[] groups() default {};
+  Class<?>[] group() default {};
 
   Class<? extends Payload>[] payload() default {};
 
