@@ -6,11 +6,13 @@ import com.waseem.command.repository.CartRepository;
 import com.waseem.command.service.AbstractCommand;
 import com.waseem.command.service.command.CreateCartNewCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 /**
  * Created by khan on 12/29/17.
  */
+@Component
 public class CreateCartNewCommandImpl extends AbstractCommand<Cart, CreateCartNewRequest>
     implements CreateCartNewCommand {
 
