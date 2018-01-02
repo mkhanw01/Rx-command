@@ -30,9 +30,8 @@ public class PingController {
 
   @GetMapping(value = ApiPath.HOME, produces = MediaType.APPLICATION_JSON_VALUE)
   public Mono<Response<String>> home() {
-    PingRequest pingRequest = PingRequest.builder().build();
 
-    return returnExecutor(pingRequest);
+    return Mono.just(Response.ok(application)).subscribeOn(Schedulers.elastic());
   }
 
   private Mono<Response<String>> returnExecutor(PingRequest pingRequest) {
