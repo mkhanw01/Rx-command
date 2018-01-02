@@ -11,5 +11,28 @@
 
     <artifactId>command-web</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.waseem</groupId>
+            <artifactId>command-validation</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.waseem</groupId>
+            <artifactId>command-service</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.waseem</groupId>
+            <artifactId>command-properties</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.waseem</groupId>
+            <artifactId>command-model</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
