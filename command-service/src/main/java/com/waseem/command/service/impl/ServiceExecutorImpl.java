@@ -7,11 +7,13 @@ import com.waseem.command.service.ServiceExecutor;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 /**
  * Created by khan on 12/29/17.
  */
+@Component
 public class ServiceExecutorImpl implements ServiceExecutor, ApplicationContextAware {
 
   private ApplicationContext applicationContext;
