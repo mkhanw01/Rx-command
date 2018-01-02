@@ -57,7 +57,7 @@ public class Response<T> {
     }
   }
 
-  private static <T> Response<T> status(HttpStatus httpStatus, T data) {
+  public static <T> Response<T> status(HttpStatus httpStatus, T data) {
     return Response.<T>builder().code(httpStatus.value()).status(httpStatus.getReasonPhrase())
         .data(data).build();
   }
